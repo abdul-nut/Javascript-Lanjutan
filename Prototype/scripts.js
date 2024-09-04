@@ -1,17 +1,30 @@
 // Function declaration
 
+const methodMahasiswa = {
+    makan: function (porsi) {
+        this.energi += porsi;
+        console.log(`jumlah makananmu ${porsi}`);
+        console.log(`total energimu ${this.energi}`);
+    }
+
+    , bermain: function (aktifitas) {
+        this.energi -= aktifitas;
+        console.log(`energimu berkurang sebanyak ${aktifitas}`);
+        console.log(`halo ${this.nama} selamat bermain!!`);
+    },
+    
+    tidur: function(jam){
+        this.energi += jam *2;
+        console.log(`energimu bertambah sebanyak ${jam*2}`);
+        console.log(`halo ${this.nama} selamat tidur!!`);
+        
+    }
+}
+
 function Mahasiswa(nama, energi) {
-    let mahasiswa = {}
+    let mahasiswa = Object.create(methosMahasiswa);
     mahasiswa.nama = nama;
     mahasiswa.energi = energi;
-
-    mahasiswa.makan = function (jumlahMakan) {
-        mahasiswa.energi += jumlahMakan;
-        console.log(`jumlah makananmu ${jumlahMakan}`);
-        console.log(`total energimu ${energi}`);
-
-        console.log(`halo ${mahasiswa.nama}, selamat makan!!`);
-    }
     return mahasiswa;
 }
 
