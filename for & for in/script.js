@@ -88,8 +88,29 @@ function jumlahkan() {
     jumlah += a;
   }
 
-  return jumlah
+  return jumlah;
 }
 
-console.log(jumlahkan(1,2,3,4,5));
+console.log(jumlahkan(1, 2, 3, 4, 5));
 
+/**
+ * Kemudian ada juga metode baru namanya for..in
+ * ini merupakan sebuah perulangan yang ditargetkan
+ * khusus untuk enumerable (property dalam sebuah object)
+ * misalkan
+ */
+
+const dosen = {
+  nama: "bapak dosen",
+  umur: "17 tahun",
+  email: "dosen@gmail.com",
+};
+
+/**
+ * jika ada object seperti diatas
+ * kita hanya bisa melakukan perulangan dengan for in
+ */
+
+for (const dsn in dosen) {
+  return dsn;
+}
