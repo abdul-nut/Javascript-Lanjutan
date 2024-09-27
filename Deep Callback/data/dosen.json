@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "nama_dosen": "Dr. Andi Pratama",
+      "mata_kuliah": "Pemrograman Web",
+      "npwp": "123456789012345",
+      "nomor_induk_dosen": "D001"
+    },
+    {
+      "id": 2,
+      "nama_dosen": "Prof. Siti Aminah",
+      "mata_kuliah": "Kecerdasan Buatan",
+      "npwp": "987654321098765",
+      "nomor_induk_dosen": "D002"
+    },
+    {
+      "id": 3,
+      "nama_dosen": "Dr. Budi Santoso",
+      "mata_kuliah": "Algoritma dan Struktur Data",
+      "npwp": "543216789065432",
+      "nomor_induk_dosen": "D003"
+    },
+    {
+      "id": 4,
+      "nama_dosen": "Ir. Lisa Permata",
+      "mata_kuliah": "Jaringan Komputer",
+      "npwp": "109876543210987",
+      "nomor_induk_dosen": "D004"
+    },
+    {
+      "id": 5,
+      "nama_dosen": "Dr. Rahmat Suryadi",
+      "mata_kuliah": "Sistem Operasi",
+      "npwp": "678905432167890",
+      "nomor_induk_dosen": "D005"
+    }
+  ]
+  
