@@ -9,15 +9,29 @@
 const searchButton = document.querySelector(".search-button");
 
 searchButton.addEventListener("click", async function () {
-  const inputKeyword = document.querySelector(".input-keywoard");
-  const movies = await getMovie(inputKeyword.value);
-  showMovie(movies);
+  try {
+    const inputKeyword = document.querySelector(".input-keywoard");
+    const movies = await getMovie(inputKeyword.value);
+    showMovie(movies);
+  } catch (error) {
+    alert(error);
+  }
 });
 
 function getMovie(keyword) {
   return fetch("http://www.omdbapi.com/?apikey=f3d3e8c9&s=" + keyword)
-    .then((response) => response.json())
-    .then((data) => data.Search);
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (data.Response === "False") {
+        throw new Error(data.Error);
+      }
+      return data.Search;
+    });
 }
 
 function showMovie(movies) {
@@ -38,19 +52,42 @@ function showMovie(movies) {
  * element terkait tidak ditemukan bahkan setelah ui nya diperbarui
  */
 
+/**Error Handling
+ * bertujuan agar ketika website tidak
+ * berjalan sesuai yang diinginkan.
+ * kita dapat mengetahui apa yang menyebabkan
+ * website kita bermasalah.
+ */
+
 document.addEventListener("click", async function (e) {
   if (e.target.classList.contains("modal-detail-button")) {
-    const imdbid = e.target.dataset.imdbid;
-    const detailMovie = await getMovieDetail(imdbid);
-    console.log(detailMovie);
-    updateDetailMovie(detailMovie);
+    try {
+      const imdbid = e.target.dataset.imdbid;
+      const detailMovie = await getMovieDetail(imdbid);
+      console.log(detailMovie);
+      updateDetailMovie(detailMovie);
+    } catch (error) {
+      alert(error);
+    }
   }
 });
 
 function getMovieDetail(imdbid) {
   return fetch("http://www.omdbapi.com/?apikey=f3d3e8c9&i=" + imdbid)
-    .then((response) => response.json())
-    .then((m) => m);
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return response.json();
+    })
+    .then((m) => {
+      if (m.Response === "False") {
+        console.log(m.Response);
+        throw new Error(m.Response);
+      }
+      return m;
+    });
 }
 
 function updateDetailMovie(m) {
