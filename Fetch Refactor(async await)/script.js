@@ -6,37 +6,6 @@
  * menjadi lebih mudah dibaca dan diperbarui
  */
 
-// const searchButton = document.querySelector(".search-button");
-// const inputKeyword = document.querySelector(".input-keywoard");
-
-// searchButton.addEventListener("click", function () {
-//   fetch("http://www.omdbapi.com/?apikey=f3d3e8c9&s=" + inputKeyword.value)
-//     .then((response) => response.json())
-//     .then((data) => {
-//       const movies = data.Search;
-//       let cards = "";
-//       movies.forEach((movie) => (cards += showCard(movie)));
-//       const movieContainer = document.querySelector(".movie-container");
-//       movieContainer.innerHTML = cards;
-
-//       const modalDetailButton = document.querySelectorAll(
-//         ".modal-detail-button"
-//       );
-//       modalDetailButton.forEach((btn) => {
-//         btn.addEventListener("click", function () {
-//           const imdbid = this.dataset.imdbid;
-//           fetch("http://www.omdbapi.com/?apikey=f3d3e8c9&i=" + imdbid)
-//             .then((response) => response.json())
-//             .then((m) => {
-//               const movieDetail = showMovieDetail(m);
-//               const modalBody = document.querySelector(".modal-body");
-//               modalBody.innerHTML = movieDetail;
-//             });
-//         });
-//       });
-//     });
-// });
-
 const searchButton = document.querySelector(".search-button");
 
 searchButton.addEventListener("click", async function () {
